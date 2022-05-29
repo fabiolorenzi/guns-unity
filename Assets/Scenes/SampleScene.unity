@@ -642,9 +642,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f972dec704b8d45b03845f018384b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 0
-  fps_cam: {fileID: 0}
-  sound: {fileID: 0}
+  bpm: 600
+  isSingle: 1
+  isAuto: 0
+  sound: {fileID: 8300000, guid: cf8ad640ec6244a4bb850360b2b34112, type: 3}
 --- !u!1001 &1412440793
 PrefabInstance:
   m_ObjectHideFlags: 0
