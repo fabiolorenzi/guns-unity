@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float bpm;
+    private float time = 0f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Camera fps_cam;
+    private AudioSource audioController;
+
+    [SerializeField]
+    private AudioClip sound;
 }
