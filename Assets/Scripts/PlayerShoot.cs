@@ -33,6 +33,8 @@ public class PlayerShoot : MonoBehaviour
     private GameObject bullet;
     [SerializeField]
     private GameObject shootPoint;
+    [SerializeField]
+    private GameObject cameraRot;
 
     public void Start()
     {
@@ -79,7 +81,7 @@ public class PlayerShoot : MonoBehaviour
     public void LaunchBullet()
     {
         RaycastHit hit;
-        Quaternion fireRotation = Quaternion.LookRotation(transform.forward);
+        Quaternion fireRotation = Quaternion.LookRotation(cameraRot.transform.forward);
         float currentSpread = Mathf.Lerp(0f, maxSpreadAngle, accuracy / timeTillMaxSpread);
         fireRotation = Quaternion.RotateTowards(fireRotation, Random.rotation, Random.Range(0f, currentSpread));
 

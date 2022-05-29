@@ -303,37 +303,7 @@ MonoBehaviour:
   smooot_weight: 0.4
   roll_angle: 0.3
   roll_speed: 3
-  default_look_limits: {x: -70, y: 50}
---- !u!1 &356094776
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 356094777}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &356094777
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356094776}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.45, z: -12}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1184593715}
-  m_RootOrder: 37
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  default_look_limits: {x: -70, y: 20}
 --- !u!1 &653713869
 GameObject:
   m_ObjectHideFlags: 0
@@ -5485,7 +5455,8 @@ MonoBehaviour:
   maxSpreadAngle: 3
   timeTillMaxSpread: 10
   bullet: {fileID: 950137850332514025, guid: 7a79c3c92faff9844b47f1886b98ae4f, type: 3}
-  shootPoint: {fileID: 356094776}
+  shootPoint: {fileID: 653713869}
+  cameraRot: {fileID: 963194225}
 --- !u!114 &1401797200
 MonoBehaviour:
   m_ObjectHideFlags: 0
