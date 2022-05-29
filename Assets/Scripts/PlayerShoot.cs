@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    public float bpm;
+    private Weapon weaponData;
     private float time = 0f;
 
     [SerializeField]
@@ -19,10 +19,11 @@ public class PlayerShoot : MonoBehaviour
 
     public void Start()
     {
+        weaponData = GetComponent<Weapon>();
         audioController = GetComponentInChildren<AudioSource>();
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         if (Input.GetKeyUp(KeyCode.Z))
         {
@@ -37,18 +38,18 @@ public class PlayerShoot : MonoBehaviour
     {
         if(isSingle && Input.GetMouseButtonDown(0))
         {
-            Debug.Log("single");
             audioController.clip = sound;
             audioController.Play();
+            weaponData.currentMagazine--;
         }
         else if(isAuto && Input.GetMouseButton(0))
         {
-            if(Time.time >= time)
+            if(Time.time >= time && weaponData.currentMagazine > 0)
             {
-                Debug.Log("auto");
                 audioController.clip = sound;
                 audioController.Play();
-                time += 60 / bpm;
+                time = Time.time + 60f / weaponData.bpm;
+                weaponData.currentMagazine--;
             }
         }
     }
