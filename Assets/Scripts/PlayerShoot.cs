@@ -7,6 +7,9 @@ public class PlayerShoot : MonoBehaviour
     private Weapon weaponData;
     private float time = 0f;
 
+    [SerializeField]
+    private float speed;
+
     private ParticleSystem muzzle;
 
     [SerializeField]
@@ -18,6 +21,18 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField]
     private AudioClip sound;
+
+    [SerializeField]
+    private float accuracy;
+    [SerializeField]
+    private float maxSpreadAngle;
+    [SerializeField]
+    private float timeTillMaxSpread;
+
+    [SerializeField]
+    private GameObject bullet;
+    [SerializeField]
+    private GameObject shootPoint;
 
     public void Start()
     {
@@ -41,6 +56,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if(isSingle && Input.GetMouseButtonDown(0))
         {
+            LaunchBullet();
             muzzle.Play();
             audioController.clip = sound;
             audioController.Play();
@@ -50,12 +66,28 @@ public class PlayerShoot : MonoBehaviour
         {
             if(Time.time >= time && weaponData.currentMagazine > 0)
             {
+                LaunchBullet();
                 muzzle.Play();
                 audioController.clip = sound;
                 audioController.Play();
                 time = Time.time + 60f / weaponData.bpm;
                 weaponData.currentMagazine--;
             }
+        }
+    }
+
+    public void LaunchBullet()
+    {
+        RaycastHit hit;
+        Quaternion fireRotation = Quaternion.LookRotation(transform.forward);
+        float currentSpread = Mathf.Lerp(0f, maxSpreadAngle, accuracy / timeTillMaxSpread);
+        fireRotation = Quaternion.RotateTowards(fireRotation, Random.rotation, Random.Range(0f, currentSpread));
+
+        if(Physics.Raycast(transform.position, fireRotation * Vector3.forward, out hit, Mathf.Infinity))
+        {
+            GameObject tempBullet = Instantiate(bullet, shootPoint.transform.position, fireRotation);
+            tempBullet.GetComponent<Bullet>().speed = speed;
+            tempBullet.GetComponent<Bullet>().hitPoint = hit.point;
         }
     }
 }
