@@ -25,7 +25,7 @@ public class MovingCamera : MonoBehaviour
     private float roll_speed = 3f;
 
     [SerializeField]
-    private Vector2 default_look_limits = new Vector2(-70f, 80f);
+    private Vector2 default_look_limits = new Vector2(-70f, 50f);
     private Vector2 look_angles;
     private Vector2 current_mouse_look;
     private Vector2 smooth_move;
