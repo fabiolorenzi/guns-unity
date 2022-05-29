@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer()
     {
-        move_directions = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Verical"));
+        move_directions = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         move_directions = transform.TransformDirection(move_directions * speed * Time.deltaTime);
 
         ApplyGravity();
@@ -33,11 +33,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void ApplyGravity()
     {
-
+        vertical_velocity -= gravity * Time.deltaTime;
+        move_directions.y = vertical_velocity * Time.deltaTime;
     }
 
     public void PlayerJump()
     {
-
+        if(character_controller.isGrounded && Input.GetKey(KeyCode.Space))
+        {
+            vertical_velocity = jump_force;
+        }
     }
 }
