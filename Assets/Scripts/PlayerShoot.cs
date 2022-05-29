@@ -7,6 +7,8 @@ public class PlayerShoot : MonoBehaviour
     private Weapon weaponData;
     private float time = 0f;
 
+    private ParticleSystem muzzle;
+
     [SerializeField]
     private bool isSingle = true;
     [SerializeField]
@@ -21,6 +23,7 @@ public class PlayerShoot : MonoBehaviour
     {
         weaponData = GetComponent<Weapon>();
         audioController = GetComponentInChildren<AudioSource>();
+        muzzle = GetComponentInChildren<ParticleSystem>();
     }
 
     public void Update()
@@ -38,6 +41,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if(isSingle && Input.GetMouseButtonDown(0))
         {
+            muzzle.Play();
             audioController.clip = sound;
             audioController.Play();
             weaponData.currentMagazine--;
@@ -46,6 +50,7 @@ public class PlayerShoot : MonoBehaviour
         {
             if(Time.time >= time && weaponData.currentMagazine > 0)
             {
+                muzzle.Play();
                 audioController.clip = sound;
                 audioController.Play();
                 time = Time.time + 60f / weaponData.bpm;
