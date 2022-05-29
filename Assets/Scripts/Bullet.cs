@@ -22,6 +22,10 @@ public class Bullet : MonoBehaviour
         {
             Instantiate(dirt, this.transform.position, this.transform.rotation);
         }
+        else if (collision.gameObject.tag == "Border")
+        {
+            Destroy(this.gameObject);
+        }
         Destroy(this.gameObject);
     }
 }

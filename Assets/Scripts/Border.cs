@@ -10,9 +10,4 @@ public class Border : MonoBehaviour
     {
         body = GetComponent<BoxCollider>();
     }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        Destroy(other.gameObject);
-    }
 }

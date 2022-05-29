@@ -5447,13 +5447,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f972dec704b8d45b03845f018384b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50000
+  speed: 10000
   isSingle: 1
   isAuto: 0
   sound: {fileID: 8300000, guid: cf8ad640ec6244a4bb850360b2b34112, type: 3}
   accuracy: 1
-  maxSpreadAngle: 3
-  timeTillMaxSpread: 10
+  maxSpreadAngle: 1
+  timeTillMaxSpread: 1
   bullet: {fileID: 950137850332514025, guid: 7a79c3c92faff9844b47f1886b98ae4f, type: 3}
   shootPoint: {fileID: 653713869}
   cameraRot: {fileID: 963194225}
