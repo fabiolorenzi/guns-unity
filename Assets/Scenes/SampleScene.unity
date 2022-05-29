@@ -5484,7 +5484,7 @@ MonoBehaviour:
   accuracy: 1
   maxSpreadAngle: 3
   timeTillMaxSpread: 10
-  bullet: {fileID: 6206943615855781275, guid: 7bc4ba506d245a74085aaceb9a5a5a2b, type: 3}
+  bullet: {fileID: 950137850332514025, guid: 7a79c3c92faff9844b47f1886b98ae4f, type: 3}
   shootPoint: {fileID: 356094776}
 --- !u!114 &1401797200
 MonoBehaviour:
