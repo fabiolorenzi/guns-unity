@@ -22,5 +22,7 @@ public class Weapon : MonoBehaviour
         {
             currentMagazine = fullMagazine;
         }
+
+        BulletsScreen.UpdateUI(currentMagazine, fullMagazine);
     }
 }
