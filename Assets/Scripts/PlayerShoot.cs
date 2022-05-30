@@ -9,6 +9,8 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private float distance;
 
     private ParticleSystem muzzle;
 
@@ -56,7 +58,7 @@ public class PlayerShoot : MonoBehaviour
 
     public void Shoot()
     {
-        if(isSingle && Input.GetMouseButtonDown(0))
+        if(isSingle && Input.GetMouseButtonDown(0) && weaponData.currentMagazine > 0)
         {
             LaunchBullet();
             muzzle.Play();
@@ -80,16 +82,17 @@ public class PlayerShoot : MonoBehaviour
 
     public void LaunchBullet()
     {
-        RaycastHit hit;
+        /*RaycastHit hit;
         Quaternion fireRotation = Quaternion.LookRotation(cameraRot.transform.forward);
         float currentSpread = Mathf.Lerp(0f, maxSpreadAngle, accuracy / timeTillMaxSpread);
         fireRotation = Quaternion.RotateTowards(fireRotation, Random.rotation, Random.Range(0f, currentSpread));
 
-        if(Physics.Raycast(transform.position, fireRotation * Vector3.forward, out hit, Mathf.Infinity))
+        if(Physics.Raycast(transform.position, fireRotation * Vector3.forward, out hit, distance))
         {
             GameObject tempBullet = Instantiate(bullet, shootPoint.transform.position, fireRotation);
             tempBullet.GetComponent<Bullet>().speed = speed;
             tempBullet.GetComponent<Bullet>().hitPoint = hit.point;
         }
+        */
     }
 }
