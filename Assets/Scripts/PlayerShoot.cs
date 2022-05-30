@@ -94,5 +94,13 @@ public class PlayerShoot : MonoBehaviour
             tempBullet.GetComponent<Bullet>().hitPoint = hit.point;
         }
         */
+
+        RaycastHit hit;
+        if (Physics.Raycast(shootPoint.transform.position, cameraRot.transform.forward, out hit, distance))
+        {
+            GameObject tempBullet = Instantiate(bullet, shootPoint.transform.position, Quaternion.LookRotation(cameraRot.transform.forward));
+            tempBullet.GetComponent<Bullet>().speed = speed;
+            tempBullet.GetComponent<Bullet>().hitPoint = hit.point;
+        }
     }
 }
